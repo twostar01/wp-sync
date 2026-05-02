@@ -1,0 +1,32 @@
+name: 'WP Sync'
+description: 'Publishes PROJECT.md and BUILDLOG.md to a WordPress page via REST API'
+
+inputs:
+  wp_url:
+    description: 'WordPress site URL (e.g. https://mygeekywebsite.com)'
+    required: true
+  wp_user:
+    description: 'WordPress username'
+    required: true
+  wp_app_password:
+    description: 'WordPress Application Password (not your login password)'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      shell: bash
+      run: pip install -r ${{ github.action_path }}/requirements.txt --quiet
+
+    - name: Sync to WordPress
+      shell: bash
+      run: python ${{ github.action_path }}/sync.py
+      env:
+        WP_URL: ${{ inputs.wp_url }}
+        WP_USER: ${{ inputs.wp_user }}
+        WP_APP_PASSWORD: ${{ inputs.wp_app_password }}
