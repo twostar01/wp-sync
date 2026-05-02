@@ -1,6 +1,6 @@
 name: Publish to Website
 
-on:
+"on":
   workflow_dispatch:
     inputs:
       note:
