@@ -13,49 +13,41 @@ Each project repo has:
 
 When `PROJECT.md` or `BUILDLOG.md` are pushed, the action converts them to HTML and updates the corresponding WordPress page via the REST API.
 
-## Install the setup skill (recommended)
+## Setup
 
-The easiest way to wire up a new project is the `/wp-sync-init` Claude Code skill.
+### Step 1 — Install the skill (one time)
+
+Clone this repo and run the install script to add the `/wp-sync-init` command to Claude Code:
 
 ```powershell
-# Windows — run once from this repo root
+# Windows
+git clone https://github.com/twostar01/wp-sync.git
+cd wp-sync
 .\install.ps1
 ```
 
 ```bash
-# Mac/Linux — run once from this repo root
+# Mac/Linux
+git clone https://github.com/twostar01/wp-sync.git
+cd wp-sync
 bash install.sh
 ```
 
-Then open any project in Claude Code and run:
+### Step 2 — Initialize any project
+
+Open the project in Claude Code and run:
 
 ```
 /wp-sync-init
 ```
 
-Claude will ask a few questions, create all the files, and walk you through the two manual steps (WordPress page + GitHub secrets).
+Claude will ask a few questions, create all the required files, and walk you through the two things that require browser access: creating the WordPress page and adding the GitHub secrets.
 
-## Manual setup
-
-If you prefer to set things up yourself:
-
-1. Copy `templates/publish.yml` to `.github/workflows/publish.yml` in your project repo
-2. Add a `PROJECT.md` with at minimum:
-   ```yaml
-   ---
-   title: My Project
-   wp_page_id: 123
-   ---
-   ```
-3. Add three repository secrets (Settings → Secrets → Actions):
-   - `WP_URL` — your WordPress site URL
-   - `WP_USER` — your WordPress username
-   - `WP_APP_PASSWORD` — a WordPress Application Password (generate at WP Admin → Users → Profile → Application Passwords)
-4. Push — the workflow fires automatically on the first push that includes `PROJECT.md`
+That's it — after secrets are set, every push that changes `PROJECT.md` or `BUILDLOG.md` publishes automatically.
 
 ## Build log workflow
 
-After a working session, run the buildlog script from your project root:
+After a working session, run from your project root:
 
 ```powershell
 # Windows
