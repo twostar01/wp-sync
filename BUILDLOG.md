@@ -6,6 +6,6 @@ The design is intentionally minimal: one Python script (`sync.py`), one action d
 
 The trickier question was how to actually capture build notes without it becoming overhead. The answer we landed on: a `buildlog` script (in `scripts/`) that pulls recent git context and starts an interactive Claude session to discuss what was decided and why. Claude asks a few questions, you answer in plain English, and it drafts the entry in the right format. Then you commit BUILDLOG.md alongside your code. The script detects the last BUILDLOG.md commit and only shows you commits since then, so it always picks up where you left off.
 
-Format for entries is intentionally narrative — what you tried, what the tradeoffs were, what someone replicating the project should know. Not a changelog. The audience is another ham who wants to build something similar and is trying to understand the reasoning, not just the end state.
+Format for entries is intentionally narrative — what you tried, what the tradeoffs were, what someone replicating the project should know. Not a changelog. The audience is another builder or tinkerer who wants to do something similar and is trying to understand the reasoning, not just the end state.
 
 Next up: test the full loop end-to-end (commit → buildlog session → publish to WordPress), then wire up a project or two as real consumers.

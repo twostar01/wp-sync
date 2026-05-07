@@ -45,6 +45,6 @@ Ask me a few focused questions to understand the key decisions, what I tried, an
 
 [One or more narrative paragraphs — conversational, practical, written for a builder trying to replicate or learn from this project. Capture the why behind decisions, not just what changed.]
 
-Keep it readable, not a changelog. Aim for the style of a ham radio build log — what worked, what didn't, and why you made the calls you did."
+Keep it readable, not a changelog. Aim for the style of a builder's project log — what worked, what didn't, and why you made the calls you did."
 
 claude "$PROMPT"

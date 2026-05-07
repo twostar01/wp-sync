@@ -12,7 +12,7 @@ tags: [wordpress, automation, github-actions, python]
 
 Reusable GitHub Action that syncs a project's `PROJECT.md` and `BUILDLOG.md` to a WordPress page via the REST API. Drop it into any project repo and get a one-click publish button in GitHub Actions — no manual website editing needed.
 
-Designed to keep project documentation on [mygeekywebsite.com](https://www.mygeekywebsite.com) up to date as projects evolve, with a narrative build log that captures discoveries and gotchas alongside the technical details.
+Designed to keep project documentation on [mygeekywebsite.com](https://www.mygeekywebsite.com) up to date as projects evolve, with a narrative build log that captures discoveries and gotchas alongside the technical details — useful for any builder or tinkerer who wants to share their process, not just the finished product.
 
 ## How It Works
 
